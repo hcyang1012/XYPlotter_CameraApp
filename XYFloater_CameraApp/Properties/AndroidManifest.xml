@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="XYFloater_CameraApp.XYFloater_CameraApp" android:versionCode="1" android:versionName="1.0">
+	<uses-sdk android:minSdkVersion="16" />
+	<application android:label="XYFloater_CameraApp"></application>
+	<uses-permission android:name="android.permission.CAMERA" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+</manifest>

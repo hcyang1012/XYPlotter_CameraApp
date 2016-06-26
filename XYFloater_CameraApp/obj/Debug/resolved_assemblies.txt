@@ -1,0 +1,10 @@
+F:\Work\Android\XYFloater_CameraApp\XYFloater_CameraApp\obj\Debug\assemblies\XYFloater_CameraApp.dll
+F:\Work\Android\XYFloater_CameraApp\XYFloater_CameraApp\obj\Debug\assemblies\Mono.Android.dll
+F:\Work\Android\XYFloater_CameraApp\XYFloater_CameraApp\obj\Debug\assemblies\mscorlib.dll
+F:\Work\Android\XYFloater_CameraApp\XYFloater_CameraApp\obj\Debug\assemblies\OpenCV.dll
+F:\Work\Android\XYFloater_CameraApp\XYFloater_CameraApp\obj\Debug\assemblies\System.Core.dll
+F:\Work\Android\XYFloater_CameraApp\XYFloater_CameraApp\obj\Debug\assemblies\System.dll
+F:\Work\Android\XYFloater_CameraApp\XYFloater_CameraApp\obj\Debug\assemblies\System.Xml.dll
+F:\Work\Android\XYFloater_CameraApp\XYFloater_CameraApp\obj\Debug\assemblies\System.Xml.Linq.dll
+F:\Work\Android\XYFloater_CameraApp\XYFloater_CameraApp\obj\Debug\assemblies\System.Runtime.Serialization.dll
+F:\Work\Android\XYFloater_CameraApp\XYFloater_CameraApp\obj\Debug\assemblies\System.ServiceModel.Internals.dll
