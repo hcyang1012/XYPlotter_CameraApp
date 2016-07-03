@@ -7,7 +7,8 @@ public class CameraGLSurfaceView_CameraTextureListenerImplementor
 		mono.android.IGCUserPeer,
 		org.opencv.android.CameraGLSurfaceView.CameraTextureListener
 {
-	static final String __md_methods;
+/** @hide */
+	public static final String __md_methods;
 	static {
 		__md_methods = 
 			"n_onCameraTexture:(IIII)Z:GetOnCameraTexture_IIIIHandler:OpenCV.Android.CameraGLSurfaceView/ICameraTextureListenerInvoker, OpenCV\n" +
@@ -49,7 +50,7 @@ public class CameraGLSurfaceView_CameraTextureListenerImplementor
 
 	private native void n_onCameraViewStopped ();
 
-	java.util.ArrayList refList;
+	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)
 	{
 		if (refList == null)

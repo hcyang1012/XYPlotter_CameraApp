@@ -7,7 +7,8 @@ public class CameraBridgeViewBase_CvCameraViewListenerImplementor
 		mono.android.IGCUserPeer,
 		org.opencv.android.CameraBridgeViewBase.CvCameraViewListener
 {
-	static final String __md_methods;
+/** @hide */
+	public static final String __md_methods;
 	static {
 		__md_methods = 
 			"n_onCameraFrame:(Lorg/opencv/core/Mat;)Lorg/opencv/core/Mat;:GetOnCameraFrame_Lorg_opencv_core_Mat_Handler:OpenCV.Android.CameraBridgeViewBase/ICvCameraViewListenerInvoker, OpenCV\n" +
@@ -49,7 +50,7 @@ public class CameraBridgeViewBase_CvCameraViewListenerImplementor
 
 	private native void n_onCameraViewStopped ();
 
-	java.util.ArrayList refList;
+	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)
 	{
 		if (refList == null)

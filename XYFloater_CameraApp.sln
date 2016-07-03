@@ -1,11 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XYFloater_CameraApp", "XYFloater_CameraApp\XYFloater_CameraApp.csproj", "{9BE33D76-2DA7-44A9-8A2A-C1054B84D328}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCV.Binding", "..\..\Xamarin.Android.OpenCV\src\OpenCV.Binding\OpenCV.Binding.csproj", "{3675B5A0-535B-4CFB-B523-ED60837278B9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCV.Binding", "XamarinAndroidOpenCV\src\OpenCV.Binding\OpenCV.Binding.csproj", "{3675B5A0-535B-4CFB-B523-ED60837278B9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ED1FF9C0-BFA3-4565-B717-12B6A7B4C251}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.md = Readme.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

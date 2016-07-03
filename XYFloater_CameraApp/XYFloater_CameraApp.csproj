@@ -71,7 +71,7 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Xamarin.Android.OpenCV\src\OpenCV.Binding\OpenCV.Binding.csproj">
+    <ProjectReference Include="..\XamarinAndroidOpenCV\src\OpenCV.Binding\OpenCV.Binding.csproj">
       <Project>{3675b5a0-535b-4cfb-b523-ed60837278b9}</Project>
       <Name>OpenCV.Binding</Name>
     </ProjectReference>
