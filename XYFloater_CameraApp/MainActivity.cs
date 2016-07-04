@@ -14,9 +14,12 @@ using Android.Util;
 
 namespace XYFloater_CameraApp
 {
+    public enum Filter_Type { CANNY, SOBEL };
     [Activity(Label = "XYFloater_CameraApp", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
+        
+
         private ImageView _imageView = null;
         private ImageView _edgeDetectedView = null;
 
@@ -107,9 +110,10 @@ namespace XYFloater_CameraApp
             App.bitmap = App._file.Path.LoadAndResizeBitmap(width, height);
             if (App.bitmap != null)
             {
-                App.edgeDetectdBitmap = App.bitmap.getEdgeDetectedImage();
+                App.edgeDetectdBitmap = App.bitmap.getEdgeDetectedImage(Filter_Type.CANNY);
+                _imageView.SetImageBitmap(App.edgeDetectdBitmap);
 
-                _imageView.SetImageBitmap(App.bitmap);
+                App.edgeDetectdBitmap = App.bitmap.getEdgeDetectedImage(Filter_Type.SOBEL);
                 _edgeDetectedView.SetImageBitmap(App.edgeDetectdBitmap);
 
                 App.grayBitmap = null;
@@ -179,19 +183,35 @@ namespace XYFloater_CameraApp
             return grayBitmap;
         }
 
-        public static Bitmap getEdgeDetectedImage(this Bitmap src)
+        public static Bitmap getEdgeDetectedImage(this Bitmap src, Filter_Type filter_type)
         {
-            OpenCV.Core.Mat srcMat = new OpenCV.Core.Mat();
-            OpenCV.Android.Utils.BitmapToMat(src, srcMat);
+            
+            Bitmap resizedBitmap = Bitmap.CreateScaledBitmap(src, (src.Width * 256) / src.Height, 256, true);
+
+            OpenCV.Core.Mat resizedMat = new OpenCV.Core.Mat();
+            OpenCV.Android.Utils.BitmapToMat(resizedBitmap, resizedMat);
+
+            OpenCV.Core.Mat gaussianMat = new OpenCV.Core.Mat();
+            Imgproc.GaussianBlur(resizedMat, gaussianMat, new OpenCV.Core.Size(3, 3), 0, 0);
+
 
             OpenCV.Core.Mat grayMat = new OpenCV.Core.Mat();
-            Imgproc.CvtColor(srcMat, grayMat, Imgproc.ColorBgr2gray, 1);
+            Imgproc.CvtColor(gaussianMat, grayMat, Imgproc.ColorBgr2gray, 1);
 
-            OpenCV.Core.Mat cannyMat = new OpenCV.Core.Mat();
-            Imgproc.Canny(grayMat, cannyMat, 100, 130, 3, false);
+            OpenCV.Core.Mat edgeDetectedMat = new OpenCV.Core.Mat();
+            if (filter_type == Filter_Type.CANNY)
+            {
+                
+                Imgproc.Canny(grayMat, edgeDetectedMat, 100, 130, 3, false);
+            }
+            else
+            {
+                Imgproc.Sobel(grayMat, edgeDetectedMat, -1, 1, 1);
+            }
 
-            Bitmap resultBitmap = Bitmap.CreateBitmap(src.Width,src.Height,Bitmap.Config.Argb8888);
-            OpenCV.Android.Utils.MatToBitmap(cannyMat, resultBitmap);
+
+            Bitmap resultBitmap = Bitmap.CreateBitmap(resizedBitmap.Width, resizedBitmap.Height,Bitmap.Config.Argb8888);
+            OpenCV.Android.Utils.MatToBitmap(edgeDetectedMat, resultBitmap);
 
             return resultBitmap;
         }
