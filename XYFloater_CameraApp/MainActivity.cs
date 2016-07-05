@@ -11,6 +11,7 @@ using Android.Content.PM;
 using OpenCV.ImgProc;
 using OpenCV.Android;
 using Android.Util;
+using OpenCV.Core;
 
 namespace XYFloater_CameraApp
 {
@@ -196,17 +197,19 @@ namespace XYFloater_CameraApp
 
 
             OpenCV.Core.Mat grayMat = new OpenCV.Core.Mat();
-            Imgproc.CvtColor(gaussianMat, grayMat, Imgproc.ColorBgr2gray, 1);
+            Imgproc.CvtColor(gaussianMat, grayMat, Imgproc.ColorRgba2gray, 2);
 
             OpenCV.Core.Mat edgeDetectedMat = new OpenCV.Core.Mat();
             if (filter_type == Filter_Type.CANNY)
             {
-                
-                Imgproc.Canny(grayMat, edgeDetectedMat, 100, 130, 3, false);
+
+                Imgproc.Canny(grayMat, edgeDetectedMat, 100, 100);
             }
             else
             {
-                Imgproc.Sobel(grayMat, edgeDetectedMat, -1, 1, 1);
+                OpenCV.Core.Mat sobelMat = new OpenCV.Core.Mat();
+                Imgproc.Sobel(grayMat, sobelMat, CvType.Cv8u, 1, 1);
+                Core.ConvertScaleAbs(sobelMat, edgeDetectedMat, 6, 1);
             }
 
 
